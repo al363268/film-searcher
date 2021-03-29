@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>fsearcher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let film of films">
+    <ion-card-header>
+      <ion-card-subtitle>{{film.id}}</ion-card-subtitle>
+      <ion-card-title>{{film.original_title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{film.overview}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
