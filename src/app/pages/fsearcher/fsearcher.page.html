@@ -2,11 +2,20 @@
   <ion-toolbar>
     <ion-title>fsearcher</ion-title>
   </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search movie..."
+                   (ionChange)="searchMovie($event)"
+                   animated>
+
+    </ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
-  <ion-card *ngFor="let film of films" [routerLink]="['/movie/' + film.id]">
+  <ion-card *ngFor="let film of films | filter:searchText" [routerLink]="['/movie/' + film.id]">
     <ion-card-header>
       <ion-card-title>{{film.title}}</ion-card-title>
       <ion-card-subtitle>{{film.original_title}}</ion-card-subtitle>

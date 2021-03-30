@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { FsearcherPageRoutingModule } from './fsearcher-routing.module';
 
 import { FsearcherPage } from './fsearcher.page';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FsearcherPageRoutingModule
+    FsearcherPageRoutingModule,
+    PipesModule
   ],
   declarations: [FsearcherPage]
 })

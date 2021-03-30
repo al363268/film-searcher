@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MoviesService } from 'src/app/services/movies.service';
+import { Movie } from 'src/app/models/movie.model';
 
 @Component({
   selector: 'app-fsearcher',
@@ -9,20 +10,23 @@ import { HttpClient } from '@angular/common/http';
 export class FsearcherPage implements OnInit {
 
   constructor(
-    private http: HttpClient
+    private moviesService: MoviesService
   ) { }
 
-  films: any = [];
+  films: Movie[] = [];
+  searchText = '';
 
   ngOnInit() {
     this.index();
   }
 
   index(){
-    this.http.get<any>('https://api.themoviedb.org/3/discover/movie?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19').subscribe(response => {
-      console.log(response.results);
-      this.films = response.results;
-    });
+    this.moviesService.getMovies().subscribe(res => this.films = res.results);
+  }
+
+  searchMovie(event){
+    const text = event.target.value;
+    this.searchText = text;
   }
 
 }
