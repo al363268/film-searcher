@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class FsearcherPage implements OnInit {
 
   constructor(
-    public http: HttpClient
+    private http: HttpClient
   ) { }
 
   films: any = [];
