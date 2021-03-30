@@ -16,4 +16,9 @@ export class MoviesService {
   getMovies(){
     return this.http.get<GenericResponse<Movie>>('https://api.themoviedb.org/3/discover/movie?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19');
   }
+  getMoviesLike(text: string){
+    return this.http.get<GenericResponse<Movie>>('https://api.themoviedb.org/3/search/movie?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19&query='
+     + text.replace(' ', '+')
+    );
+  }
 }

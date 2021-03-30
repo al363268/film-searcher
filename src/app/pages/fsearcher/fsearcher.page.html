@@ -6,6 +6,7 @@
   <ion-toolbar>
     <ion-searchbar placeholder="Search movie..."
                    (ionChange)="searchMovie($event)"
+                   debounce="500"
                    animated>
 
     </ion-searchbar>
