@@ -21,4 +21,7 @@ export class MoviesService {
      + text.replace(' ', '+')
     );
   }
+  getMovieById(id: string){
+    return this.http.get<Movie>('https://api.themoviedb.org/3/movie/' + id + '?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19');
+  }
 }
