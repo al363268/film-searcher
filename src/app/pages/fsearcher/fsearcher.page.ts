@@ -31,13 +31,6 @@ export class FsearcherPage implements OnInit {
     }else{
       this.moviesService.getMoviesLike(text).subscribe(res => this.films = res.results);
     }
-    // this.searchText = text;
   }
-
-  /* Valido si hay un listado de peliculas, aplicar un filtro de búsqueda
-  searchMovie(event){
-    const text = event.target.value;
-    this.searchText = text;
-  }*/
 
 }
