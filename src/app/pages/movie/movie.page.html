@@ -11,7 +11,7 @@
   <div *ngIf="movieData">
     <ion-card>
       <ion-card-header>
-        <img src="{{movieImg}}" alt="{{movieData.title}}">
+        <img src="https://image.tmdb.org/t/p/w300{{movieData.poster_path}}" alt="{{movieData.title}}">
         <ion-card-title>{{movieData.title}}</ion-card-title>
         <ion-card-subtitle>{{movieData.release_date}}</ion-card-subtitle>
       </ion-card-header>

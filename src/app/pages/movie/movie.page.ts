@@ -11,7 +11,6 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MoviePage implements OnInit {
 
   movieData: Movie;
-  movieImg = 'https://image.tmdb.org/t/p/w300/';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,9 +23,6 @@ export class MoviePage implements OnInit {
 
   index(){
     this.moviesService.getMovieById(this.activatedRoute.snapshot.paramMap.get('id'))
-      .subscribe(res => {
-        this.movieData = res;
-        this.movieImg += this.movieData.poster_path;
-      });
+      .subscribe(res => this.movieData = res);
   }
 }
