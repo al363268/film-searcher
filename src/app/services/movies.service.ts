@@ -14,17 +14,18 @@ export class MoviesService {
     private http: HttpClient
   ) { }
 
-  api: string = environment.api;
+  apilink: string = environment.apilink;
+  apikey: string = environment.apikey;
 
   getMovies(){
-    return this.http.get<GenericResponse<Movie>>(`${this.api}discover/movie?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19`);
+    return this.http.get<GenericResponse<Movie>>(`${this.apilink}discover/movie?api_key=${this.apikey}`);
   }
   getMoviesLike(text: string){
-    return this.http.get<GenericResponse<Movie>>(`${this.api}search/movie?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19&query=`
+    return this.http.get<GenericResponse<Movie>>(`${this.apilink}search/movie?api_key=${this.apikey}&query=`
      + text.replace(' ', '+')
     );
   }
   getMovieById(id: string){
-    return this.http.get<Movie>(`${this.api}movie/` + id + `?api_key=9b06d6cb3a9bff49394c6dcd24a4ec19`);
+    return this.http.get<Movie>(`${this.apilink}movie/` + id + `?api_key=${this.apikey}`);
   }
 }
