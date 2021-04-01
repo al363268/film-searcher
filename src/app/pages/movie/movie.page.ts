@@ -11,6 +11,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MoviePage implements OnInit {
 
   movieData: Movie;
+  genres: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,6 +24,9 @@ export class MoviePage implements OnInit {
 
   index(){
     this.moviesService.getMovieById(this.activatedRoute.snapshot.paramMap.get('id'))
-      .subscribe(res => this.movieData = res);
+      .subscribe(res => {
+        this.movieData = res;
+        this.genres = res.genres.map( ({name}) => name).join(', ');
+      });
   }
 }

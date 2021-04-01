@@ -1,8 +1,4 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>fsearcher</ion-title>
-  </ion-toolbar>
-
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-searchbar placeholder="Search movie..."
                    (ionChange)="searchMovie($event)"
@@ -11,21 +7,22 @@
 
     </ion-searchbar>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
-
   <ng-container *ngIf="!!films && films.length > 0; else noFilms">
-    <ion-card *ngFor="let film of films | filter:searchText" [routerLink]="['/movie/' + film.id]">
-      <ion-card-header>
-        <img src="https://image.tmdb.org/t/p/w200{{film.poster_path}}" alt="{{film.title}}">
-        <ion-card-title>{{film.title}}</ion-card-title>
-        <ion-card-subtitle>{{film.original_title}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>{{film.overview}}</ion-card-content>
-    </ion-card>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="4" *ngFor="let film of films | filter:searchText">
+        <ion-card [routerLink]="['/movie/' + film.id]" color="light">
+          <ion-card-header>
+            <img src="https://image.tmdb.org/t/p/w200{{film.poster_path}}" alt="{{film.title}}">
+            <ion-card-title>{{film.title}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ng-container>
+
   <ng-template #noFilms>
     <ion-card>
       <ion-card-header>

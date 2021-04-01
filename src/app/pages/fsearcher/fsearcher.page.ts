@@ -29,7 +29,7 @@ export class FsearcherPage implements OnInit {
     if (text.length === 0){
       this.index();
     }else{
-      this.moviesService.getMoviesLike(text).subscribe(res => this.films = res.results);
+      this.moviesService.searchMovies(text).subscribe(res => this.films = res.results);
     }
   }
 
