@@ -12,7 +12,7 @@
 <ion-content>
   <ng-container *ngIf="!!films && films.length > 0; else noFilms">
     <ion-row class="ion-align-items-center">
-      <ion-col size="4" *ngFor="let film of films | filter:searchText">
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let film of films | filter:searchText">
         <ion-card [routerLink]="['/movie/' + film.id]" color="light">
           <ion-card-header>
             <img src="https://image.tmdb.org/t/p/w200{{film.poster_path}}" alt="{{film.title}}">
